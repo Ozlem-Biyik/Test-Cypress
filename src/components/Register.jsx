@@ -38,7 +38,7 @@ export default function Register() {
   };
 
   
-  let regex =  
+  let passwordConfirm =  
   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&])[A-Za-z\d@.#$!%*?&]{8,15}$/; 
 
 
@@ -47,7 +47,7 @@ export default function Register() {
         formData.ad.trim().length>=3 &&
         formData.soyad.trim().length>=3 &&
         validateEmail(formData.email) &&
-        regex.test(formData.password)
+        passwordConfirm.test(formData.password)
     ) {
         setIsValid(true);
     }else{
@@ -76,7 +76,7 @@ export default function Register() {
         }
     }
     if(name==="password") {
-        if(regex.test(value)){
+        if(passwordConfirm.test(value)){
             setErrors({...errors, [name]:false})  
         }else{
             setErrors({...errors, [name]:true})  
